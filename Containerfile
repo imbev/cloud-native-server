@@ -5,7 +5,11 @@ RUN dnf update -y && \
     dnf clean all
 
 COPY proxy.container /usr/share/containers/systemd/users/
+COPY proxy_data.volume /usr/share/containers/systemd/users/
 COPY app.container /usr/share/containers/systemd/users/
+
+RUN mkdir -p /usr/local/share/proxy
+COPY Caddyfile /usr/local/share/proxy
 
 RUN ln -s /usr/share/containers/systemd/users/* /usr/lib/bootc/bound-images.d/
 

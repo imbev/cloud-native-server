@@ -2,6 +2,8 @@
 Image=docker.io/library/caddy:2
 GlobalArgs=--storage-opt=additionalimagestore=/usr/lib/bootc/storage
 PublishPort=8443:443
+Volume=/usr/local/share/proxy:/etc/caddy
+Volume=proxy_data:/data
 
 [Unit]
 Description=Caddy reverse proxy
