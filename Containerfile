@@ -5,7 +5,6 @@ RUN dnf update -y && \
     dnf clean all
 
 COPY proxy.container /usr/share/containers/systemd/users/
-COPY proxy_data.volume /usr/share/containers/systemd/users/
 COPY app.container /usr/share/containers/systemd/users/
 
 RUN mkdir -p /usr/local/share/proxy
