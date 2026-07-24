@@ -1,4 +1,4 @@
 examplestuff.com {
-	respond "Hello, world!"
+    reverse_proxy :8080
 }
 
