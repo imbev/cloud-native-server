@@ -9,6 +9,6 @@ COPY app.container /usr/share/containers/systemd/users/
 
 RUN ln -s /usr/share/containers/systemd/users/* /usr/lib/bootc/bound-images.d/
 
-RUN firewall-offline-cmd --permanent --add-port 443/tcp && \
-    firewall-offline-cmd --permanent --add-forward-port=port=443:proto=tcp:toport=8443
+RUN firewall-offline-cmd --add-port 443/tcp && \
+    firewall-offline-cmd --add-forward-port=port=443:proto=tcp:toport=8443
 
