@@ -18,7 +18,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y podman
 
       - name: Build image
-        run: podman build -t localhost/cloud-native-server
+        run: podman build -t localhost/cloud-native-server .
 
       - name: Authenticate to container registry
         env: 
