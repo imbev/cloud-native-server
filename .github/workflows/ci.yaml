@@ -21,7 +21,8 @@ jobs:
         run: podman build -t localhost/cloud-native-server
 
       - name: Authenticate to container registry
-        env: REGISTRY_USER: ${{ secrets.registry_user }}
+        env: 
+             REGISTRY_USER: ${{ secrets.registry_user }}
              REGISTRY_PASS: ${{ secrets.registry_pass }}
         run: podman login -u $REGISTRY_USER --password $REGISTRY_PASS docker.io
 
