@@ -27,5 +27,5 @@ jobs:
         run: podman login -u $REGISTRY_USER --password $REGISTRY_PASS docker.io
 
       - name: Push image
-        run podman push localhost/cloud-native-server docker.io/imbev/cloud-native-server:latest
+        run: podman push localhost/cloud-native-server docker.io/imbev/cloud-native-server:latest
 
