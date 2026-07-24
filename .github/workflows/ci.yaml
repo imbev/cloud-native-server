@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: apt-get update && apt-get install -y podman
+        run: sudo apt-get update && sudo apt-get install -y podman
 
       - name: Build image
         run: podman build -t localhost/cloud-native-server
