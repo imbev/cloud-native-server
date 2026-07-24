@@ -1,4 +1,4 @@
-localhost {
+examplestuff.com {
 	respond "Hello, world!"
 }
 
