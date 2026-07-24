@@ -1,0 +1,14 @@
+[Container]
+Image=docker.io/library/httpd:2
+GlobalArgs=--storage-opt=additionalimagestore=/usr/lib/bootc/storage
+PublishPort=8080:80
+
+[Unit]
+Description=Custom application workload
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Restart=always
+

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches: [ $default-branch ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: apt-get update && apt-get install -y podman
+
+      - name: Build image
+        run: podman build -t localhost/cloud-native-server
+
+      - name: Authenticate to container registry
+        env: REGISTRY_USER: ${{ secrets.registry_user }}
+             REGISTRY_PASS: ${{ secrets.registry_pass }}
+        run: podman login -u $REGISTRY_USER --password $REGISTRY_PASS docker.io
+
+      - name: Push image
+        run podman push localhost/cloud-native-server docker.io/imbev/cloud-native-server:latest
+
