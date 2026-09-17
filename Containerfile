@@ -15,3 +15,4 @@ RUN ln -s /usr/share/containers/systemd/* /usr/lib/bootc/bound-images.d/
 RUN firewall-offline-cmd --add-port 80/tcp && \
     firewall-offline-cmd --add-port 443/tcp 
 
+RUN echo "PasswordAuthentication no" >> /etc/ssh/sshd_config.d/90-custom.conf
